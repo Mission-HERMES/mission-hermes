@@ -1,14 +1,16 @@
 [
-    {
-        "titre": "Mission Artemis",
-        "texte": "Suivez en direct la mission Artemis <a href=\"https://www.youtube.com/watch?v=m3kR2KK8TEs\">ici</a>."
-    },
-    {
-        "titre": "🌱 Avancée dans la serre",
-        "texte": "Les cultures lunaires atteignent 87%."
-    },
-    {
-        "titre": "⚡ Optimisation énergétique",
-        "texte": "L’IA HERMES réduit la consommation électrique."
-    }
+  {
+    "titre": "Mission Artemis",
+    "categorie": "Science",
+    "image": "images/artemis.jpg",
+    "date": "2026-04-06",
+    "texte": "La mission Artemis progresse..."
+  },
+  {
+    "titre": "Maintenance du sas",
+    "categorie": "Base",
+    "image": "images/sas.jpg",
+    "date": "2026-04-04",
+    "texte": "Une maintenance préventive a été effectuée."
+  }
 ]
