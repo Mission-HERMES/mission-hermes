@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Base Lunaire – Mission HERMES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-dark">
+
+<!-- Effets spatiaux -->
+<div class="star-layer"></div>
+<div class="nebula"></div>
+<div class="planet-rotating"></div>
+<div class="shooting-star" id="shootingStar"></div>
+<div class="scan-line" id="scanLine"></div>
+
+<!-- Bouton sidebar -->
+<button class="toggle-btn" id="toggleSidebar">☰</button>
+
+<!-- Bouton loupe -->
+<button class="search-toggle" id="searchToggle">🔍</button>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <img src="Logo.png" class="sidebar-logo" alt="Logo HERMES">
+
+    <nav class="sidebar-nav">
+        <a href="index.html">Accueil</a>
+        <a href="mission.html">Mission</a>
+        <a href="base.html" class="active">Base Lunaire</a>
+        <a href="ia.html">IA</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="fusion.html">Modèle 3D</a>
+        <a href="equipe.html">Équipe</a>
+    </nav>
+</aside>
+
+<!-- Boîte de recherche -->
+<div class="search-box" id="searchBox">
+    <input type="text" id="searchInput" placeholder="Rechercher...">
+</div>
+
+<!-- Contenu principal -->
+<div class="content page-transition" id="content">
+
+    <!-- Header -->
+    <header class="center-header">
+        <div class="header-line">
+            <img src="Logo.png" class="header-logo" alt="Logo HERMES">
+            <h1>BASE LUNAIRE</h1>
+        </div>
+        <p>Infrastructure autonome – Mission HERMES</p>
+
+        <!-- Boutons de thème -->
+        <div class="theme-switcher">
+            <button class="theme-btn active" data-theme="dark">Dark</button>
+            <button class="theme-btn" data-theme="light">Light</button>
+            <button class="theme-btn" data-theme="proxima">Proxima</button>
+        </div>
+    </header>
+
+    <!-- Fil d’Ariane -->
+    <nav class="breadcrumb">
+        <a href="index.html">Accueil</a> › <span>Base Lunaire</span>
+    </nav>
+
+    <main>
+
+        <!-- SECTION 1 : Présentation -->
+        <section>
+            <h2>Présentation de la Base Lunaire</h2>
+            <p>
+                La base lunaire HERMES est conçue pour être entièrement autonome, résistante aux radiations
+                et capable d’accueillir une équipe scientifique pendant de longues périodes. Elle combine
+                technologies avancées, IA embarquée et structures imprimées en 3D à partir du régolithe.
+            </p>
+        </section>
+
+        <!-- SECTION 2 : Carte interactive -->
+        <section>
+            <h2>Carte Interactive</h2>
+            <p>Survolez une zone pour afficher sa description.</p>
+
+            <div class="base-map">
+                <div class="zone zone-habitat" data-label="Habitat">Habitat</div>
+                <div class="zone zone-serre" data-label="Serre">Serre</div>
+                <div class="zone zone-labo" data-label="Laboratoire">Laboratoire</div>
+                <div class="zone zone-sas" data-label="Sas">Sas</div>
+            </div>
+
+            <p id="baseInfo" style="margin-top: 12px; color: var(--text-dim);">
+                Survolez une zone pour voir sa description.
+            </p>
+        </section>
+
+        <!-- SECTION 3 : Architecture -->
+        <section>
+            <h2>Architecture de la Base</h2>
+            <p>
+                La base est semi‑enterrée afin de réduire l’exposition aux radiations et aux micrométéorites.
+                Les modules sont imprimés en 3D à partir du régolithe lunaire, permettant une construction
+                locale sans dépendre de matériaux terrestres.
+            </p>
+        </section>
+
+        <!-- SECTION 4 : Systèmes de survie -->
+        <section>
+            <h2>Systèmes de Survie</h2>
+            <ul style="margin-top: 10px; line-height: 1.7;">
+                <li>Production d’oxygène par électrolyse et plantes.</li>
+                <li>Recyclage de l’eau à 98%.</li>
+                <li>Protection contre les radiations grâce au régolithe compacté.</li>
+                <li>IA de supervision pour la maintenance et la sécurité.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 5 : Objectifs -->
+        <section>
+            <h2>Objectifs de la Base</h2>
+            <p>
+                La base lunaire sert de laboratoire pour tester les technologies nécessaires à une future
+                colonisation de Proxima Centauri b. Elle permet également d’étudier les ressources lunaires
+                exploitables, notamment l’hélium‑3 pour la fusion nucléaire.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 – Mission HERMES – Équipe NOVA
+    </footer>
+
+</div>
+
+<!-- Script -->
+<script src="script.js"></script>
+
+</body>
+</html>
