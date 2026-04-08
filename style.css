@@ -654,9 +654,9 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-.Vaisseau HERMES.jpg {
-    width: 320px;          /* taille de l’image */
-    border-radius: 15px;   /* coins arrondis */
+.vaisseau-hermes img {
+    width: 320px;
+    border-radius: 15px;
     display: block;
-    margin: 20px auto;     /* centre l’image */
+    margin: 20px auto;
 }
