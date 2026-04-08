@@ -654,3 +654,9 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+.hermes-img {
+    width: 320px;          /* taille de l’image */
+    border-radius: 15px;   /* coins arrondis */
+    display: block;
+    margin: 20px auto;     /* centre l’image */
+}
