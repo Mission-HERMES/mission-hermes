@@ -86,16 +86,14 @@
                 Posez une question à l’IA embarquée. Elle répond en fonction de sa base de connaissances locale.
             </p>
 
-            <div class="ai-panel">
-                <div class="ai-output" id="aiOutput">
-                    Bonjour, je suis l’ordinateur de bord HERMES. Posez‑moi une question sur la mission.
-                </div>
+            <div id="ai-box">
+                <h2>HERMES AI</h2>
+                <div id="ai-chat"></div>
 
-                <div class="ai-input-row">
-                    <input type="text" id="aiQuestion" placeholder="Ex : Comment est alimentée la base lunaire ?">
-                    <button id="aiAskBtn">Envoyer</button>
-                </div>
+                <input id="ai-input" type="text" placeholder="Pose ta question..." />
+                <button onclick="askBaseAI()">Envoyer</button>
             </div>
+
         </section>
 
         <!-- SECTION 3 : Capacités -->
