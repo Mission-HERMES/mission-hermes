@@ -148,8 +148,6 @@ if (aiOutput && aiQuestion && aiAskBtn) {
         { key: "base",      answer: "La base est semi‑enterrée pour protéger des radiations et imprimée en 3D à partir du régolithe." },
         { key: "vaisseau",  answer: "Le vaisseau HERMES utilise une propulsion à fusion nucléaire pour atteindre Proxima Centauri b." },
         { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." },
-        
-       // MÉTÉO
         { keys: ["température", "dehors", "froid", "chaud"], text: "La température extérieure est de –63°C. L’exposition directe est déconseillée." },
         { keys: ["tempête", "météo", "temps"], text: "Aucune tempête détectée dans un rayon de 12 km." },
         { keys: ["vent"], text: "Vent faible, 14 km/h, direction nord‑est." },
