@@ -61,7 +61,7 @@ function askBaseAI() {
         { keys: ["radiation"], text: "Alerte : radiation élevée. Restez à l’intérieur." }
     ];
 
-    let response = "Je ne possède pas ces informations dans ma base de donnée.";
+    let response = "Je ne possède pas ces informations dans ma base de données.";
 
     for (let r of responses) {
         if (r.keys.some(k => input.includes(k))) {
