@@ -534,41 +534,48 @@ section p {
 /* ===================================================
    ASSISTANT IA
 =================================================== */
-.ai-box {
-    width: 420px;
-    padding: 20px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    color: white;
-    font-family: Arial, sans-serif;
+.ai-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.ai-chat {
-    height: 240px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    background: rgba(0,0,0,0.3);
+.ai-output {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid var(--glass-border);
+    min-height: 70px;
+    font-size: 0.95rem;
 }
 
-.ai-input {
-    width: 70%;
-    padding: 8px;
-    border-radius: 6px;
+.ai-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.ai-input-row input {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.08);
+    color: var(--text-light);
+    outline: none;
+}
+
+.ai-input-row button {
+    padding: 8px 12px;
+    border-radius: 10px;
     border: none;
-}
-
-.button {
-    width: 25%;
-    padding: 8px;
-    border-radius: 6px;
-    border: none;
-    background: #00bfff;
-    color: black;
-    font-weight: bold;
+    background: var(--accent);
+    color: #fff;
     cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.ai-input-row button:hover {
+    box-shadow: 0 0 10px var(--accent-glow);
 }
 
 
