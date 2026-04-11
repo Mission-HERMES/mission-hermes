@@ -148,11 +148,11 @@ if (aiOutput && aiQuestion && aiAskBtn) {
         { key: "base",      answer: "La base est semi‑enterrée pour protéger des radiations et imprimée en 3D à partir du régolithe." },
         { key: "vaisseau",  answer: "Le vaisseau HERMES utilise une propulsion à fusion nucléaire pour atteindre Proxima Centauri b." },
         { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." },
-        { keys: ["température", "dehors", "froid", "chaud"], text: "La température extérieure est de –63°C. L’exposition directe est déconseillée." },
-        { keys: ["tempête", "météo", "temps"], text: "Aucune tempête détectée dans un rayon de 12 km." },
-        { keys: ["vent"], text: "Vent faible, 14 km/h, direction nord‑est." },
-        { keys: ["radiation", "rayonnement"], text: "Radiation solaire modérée. Combinaison renforcée recommandée." },
-        { keys: ["pression"], text: "Pression atmosphérique instable, sortie extravéhiculaire non autorisée." },
+        { keys: ["température", "dehors", "froid", "chaud"],  answer: "La température extérieure est de –63°C. L’exposition directe est déconseillée." },
+        { keys: ["tempête", "météo", "temps"],                answer: "Aucune tempête détectée dans un rayon de 12 km." },
+        { keys: ["vent"],                                     answer: "Vent faible, 14 km/h, direction nord‑est." },
+        { keys: ["radiation", "rayonnement"],                 answer: "Radiation solaire modérée. Combinaison renforcée recommandée." },
+        { keys: ["pression"],                                 answer: "Pression atmosphérique instable, sortie extravéhiculaire non autorisée." },
 
         // ÉTAT DE LA BASE
         { keys: ["base", "modules", "état"], text: "Tous les modules sont opérationnels." },
