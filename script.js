@@ -142,13 +142,14 @@ const aiOutput   = document.getElementById("aiOutput");
 const aiQuestion = document.getElementById("aiQuestion");
 const aiAskBtn   = document.getElementById("aiAskBtn");
 
-    const responses = [
+if (aiOutput && aiQuestion && aiAskBtn) {
+    const aiKnowledge = [
         { key: "énergie",   answer: "La base est alimentée par des panneaux solaires et du stockage d’hélium‑3 pour la fusion." },
         { key: "base",      answer: "La base est semi‑enterrée pour protéger des radiations et imprimée en 3D à partir du régolithe." },
         { key: "vaisseau",  answer: "Le vaisseau HERMES utilise une propulsion à fusion nucléaire pour atteindre Proxima Centauri b." },
-        { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." }
-        
-       // MÉTÉO
+        { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." },
+   ;
+	// MÉTÉO
         { keys: ["température", "dehors", "froid", "chaud"], text: "La température extérieure est de –63°C. L’exposition directe est déconseillée." },
         { keys: ["tempête", "météo", "temps"], text: "Aucune tempête détectée dans un rayon de 12 km." },
         { keys: ["vent"], text: "Vent faible, 14 km/h, direction nord‑est." },
@@ -206,20 +207,33 @@ const aiAskBtn   = document.getElementById("aiAskBtn");
         { keys: ["radiation"], text: "Alerte : radiation élevée. Restez à l’intérieur." }
     ];
 
-    let response = "Je n’ai pas encore cette information dans ma base de données locale.";
+    function askAI() {
+        const q = aiQuestion.value.toLowerCase().trim();
+        if (!q) return;
 
-    for (let r of responses) {
-        if (r.keys.some(k => input.includes(k))) {
-            response = r.text;
-            break;
+        let response = "Je n’ai pas encore cette information dans ma base de données locale.";
+        for (const item of aiKnowledge) {
+            if (q.includes(item.key)) {
+                response = item.answer;
+                break;
+            }
         }
+        aiOutput.textContent = response;
+        aiQuestion.value = "";
     }
 
-    chat.innerHTML += `<p><b>Vous :</b> ${input}</p>`;
-    chat.innerHTML += `<p><b>HERMES AI :</b> ${response}</p>`;
-    chat.scrollTop = chat.scrollHeight;
-
-    document.getElementById("ai-input").value = "";
+    aiAskBtn.addEventListener("click", askAI);
+    aiQuestion.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") askAI();
+    });
+}
+function getTodayDate() {
+    const date = new Date();
+    return "Publié le " + date.toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
 }
 
 /* ================================
