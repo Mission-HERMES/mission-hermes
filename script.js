@@ -138,12 +138,17 @@ if (baseInfo && zones.length > 0) {
 /* ================================
    ASSISTANT IA (ia.html)
 ================================ */
-function askBaseAI() {
-    const input = document.getElementById("ai-input").value.toLowerCase();
-    const chat = document.getElementById("ai-chat");
+const aiOutput   = document.getElementById("aiOutput");
+const aiQuestion = document.getElementById("aiQuestion");
+const aiAskBtn   = document.getElementById("aiAskBtn");
 
     const responses = [
-        // MÉTÉO
+        { key: "énergie",   answer: "La base est alimentée par des panneaux solaires et du stockage d’hélium‑3 pour la fusion." },
+        { key: "base",      answer: "La base est semi‑enterrée pour protéger des radiations et imprimée en 3D à partir du régolithe." },
+        { key: "vaisseau",  answer: "Le vaisseau HERMES utilise une propulsion à fusion nucléaire pour atteindre Proxima Centauri b." },
+        { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." }
+        
+       // MÉTÉO
         { keys: ["température", "dehors", "froid", "chaud"], text: "La température extérieure est de –63°C. L’exposition directe est déconseillée." },
         { keys: ["tempête", "météo", "temps"], text: "Aucune tempête détectée dans un rayon de 12 km." },
         { keys: ["vent"], text: "Vent faible, 14 km/h, direction nord‑est." },
