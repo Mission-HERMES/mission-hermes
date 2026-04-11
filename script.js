@@ -147,7 +147,7 @@ if (aiOutput && aiQuestion && aiAskBtn) {
         { key: "énergie",   answer: "La base est alimentée par des panneaux solaires et du stockage d’hélium‑3 pour la fusion." },
         { key: "base",      answer: "La base est semi‑enterrée pour protéger des radiations et imprimée en 3D à partir du régolithe." },
         { key: "vaisseau",  answer: "Le vaisseau HERMES utilise une propulsion à fusion nucléaire pour atteindre Proxima Centauri b." },
-        { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." },
+        { key: "ia",        answer: "L’IA gère la maintenance, la sécurité, l’optimisation énergétique et l’assistance aux astronautes." }
     ];
 
     function askAI() {
@@ -178,7 +178,6 @@ function getTodayDate() {
         year: "numeric"
     });
 }
-
 /* ================================
    ACTUALITÉS DYNAMIQUES
 ================================ */
