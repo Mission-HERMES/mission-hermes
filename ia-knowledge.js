@@ -1,6 +1,6 @@
 function askBaseAI() {
     const input = document.getElementById("ai-input").value.toLowerCase();
-    const chat = document.getElementById("ai-output");
+    const chat = document.getElementById("ai-chat");
 
     const responses = [
         // MÉTÉO
