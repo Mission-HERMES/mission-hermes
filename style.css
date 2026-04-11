@@ -534,7 +534,7 @@ section p {
 /* ===================================================
    ASSISTANT IA
 =================================================== */
-#ai-box {
+.ai-box {
     width: 420px;
     padding: 20px;
     background: rgba(255,255,255,0.1);
@@ -544,7 +544,7 @@ section p {
     font-family: Arial, sans-serif;
 }
 
-#ai-chat {
+.ai-chat {
     height: 240px;
     overflow-y: auto;
     margin-bottom: 10px;
@@ -553,14 +553,14 @@ section p {
     background: rgba(0,0,0,0.3);
 }
 
-#ai-input {
+.ai-input {
     width: 70%;
     padding: 8px;
     border-radius: 6px;
     border: none;
 }
 
-button {
+.button {
     width: 25%;
     padding: 8px;
     border-radius: 6px;
