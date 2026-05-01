@@ -661,3 +661,43 @@ footer {
     display: block;
     margin: 20px auto;
 }
+
+.news-section {
+  padding: 60px 80px;
+  background: #0b0e16;
+  color: #fff;
+}
+
+.news-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-left: 4px solid #00bcd4;
+  padding-left: 12px;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.news-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+.news-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.news-item h3 {
+  color: #00bcd4;
+  margin-bottom: 10px;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: #aaa;
+}
