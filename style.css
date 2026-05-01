@@ -717,3 +717,20 @@ footer {
     font-size: 0.85rem;
     color: var(--text-dim);
 }
+
+.visit-counter {
+    margin: 0 auto;
+    padding: 18px 20px;
+    width: fit-content;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+}
+
+.visit-counter img {
+    display: block;
+    height: 40px;
+}
