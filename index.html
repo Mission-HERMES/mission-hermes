@@ -20,7 +20,7 @@ const url = "https://api.npoint.io/d1cd8693630880fca7cc";
 async function updateCounter() {
     let data = await fetch(url).then(r => r.json());
 
-    data.visits += 1;
+    data.visits += 2063;
 
     document.getElementById("visit-number").textContent = data.visits;
 
