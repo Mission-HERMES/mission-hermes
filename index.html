@@ -14,6 +14,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+const url = "https://api.npoint.io/d1cd8693630880fca7cc";
+
+async function updateCounter() {
+    let data = await fetch(url).then(r => r.json());
+
+    data.visits += 1;
+
+    document.getElementById("visit-number").textContent = data.visits;
+
+    await fetch(url, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+}
+
+updateCounter();
+</script>
+
 <body class="theme-dark">
 
 <!-- Google Tag Manager (noscript) -->
