@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini OpenFront-like</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0b1020;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 10px 0 0;
+      font-size: 20px;
+    }
+    #info {
+      margin: 5px 0 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    #game {
+      display: grid;
+      grid-template-columns: repeat(20, 24px);
+      grid-template-rows: repeat(12, 24px);
+      gap: 2px;
+      background: #111827;
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      user-select: none;
+    }
+    .cell {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: #1f2937;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: background 0.15s, transform 0.05s;
+    }
+    .cell:hover {
+      transform: scale(1.05);
+    }
+    .player {
+      background: #3b82f6;
+    }
+    .ai {
+      background: #ef4444;
+    }
+    .neutral {
+      background: #1f2937;
+    }
+    #stats {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mini OpenFront-like</h1>
+  <div id="info">
+    Clique sur les cases adjacentes à ton territoire bleu pour les conquérir.<br>
+    L’IA rouge s’étend automatiquement. Gagne en contrôlant plus de cases !
+  </div>
+  <div id="game"></div>
+  <div id="stats"></div>
+
+  <script>
+    // --- Paramètres de la "carte" ---
+    const COLS = 20;
+    const ROWS = 12;
+    const PLAYER = 1;
+    const AI = 2;
+    const NEUTRAL = 0;
+
+    const grid = [];
+    const gameEl = document.getElementById('game');
+    const statsEl = document.getElementById('stats');
+
+    // Initialisation de la grille
+    function initGrid() {
+      for (let y = 0; y < ROWS; y++) {
+        grid[y] = [];
+        for (let x = 0; x < COLS; x++) {
+          grid[y][x] = NEUTRAL;
+        }
+      }
+      // Position de départ joueur (gauche)
+      grid[Math.floor(ROWS / 2)][2] = PLAYER;
+      // Position de départ IA (droite)
+      grid[Math.floor(ROWS / 2)][COLS - 3] = AI;
+    }
+
+    // Création des éléments HTML
+    function renderGrid() {
+      gameEl.innerHTML = '';
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.dataset.x = x;
+          cell.dataset.y = y;
+
+          if (grid[y][x] === PLAYER) cell.classList.add('player');
+          else if (grid[y][x] === AI) cell.classList.add('ai');
+          else cell.classList.add('neutral');
+
+          cell.addEventListener('click', onCellClick);
+          gameEl.appendChild(cell);
+        }
+      }
+      updateStats();
+    }
+
+    // Vérifie si (x,y) est dans la grille
+    function inBounds(x, y) {
+      return x >= 0 && x < COLS && y >= 0 && y < ROWS;
+    }
+
+    // Vérifie si une case est adjacente à un territoire donné
+    function isAdjacentTo(x, y, owner) {
+      const dirs = [
+        [1, 0], [-1, 0],
+        [0, 1], [0, -1]
+      ];
+      for (const [dx, dy] of dirs) {
+        const nx = x + dx;
+        const ny = y + dy;
+        if (inBounds(nx, ny) && grid[ny][nx] === owner) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Clic joueur : conquête si adjacent à son territoire
+    function onCellClick(e) {
+      const x = parseInt(e.target.dataset.x, 10);
+      const y = parseInt(e.target.dataset.y, 10);
+
+      if (grid[y][x] === PLAYER) return; // déjà à toi
+      if (!isAdjacentTo(x, y, PLAYER)) return; // pas adjacent
+
+      // Conquête
+      grid[y][x] = PLAYER;
+      renderGrid();
+    }
+
+    // Tour de l’IA : s’étend vers des cases neutres ou du joueur
+    function aiTurn() {
+      const candidates = [];
+
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          if (grid[y][x] === NEUTRAL || grid[y][x] === PLAYER) {
+            if (isAdjacentTo(x, y, AI)) {
+              candidates.push({ x, y });
+            }
+          }
+        }
+      }
+
+      if (candidates.length > 0) {
+        const choice = candidates[Math.floor(Math.random() * candidates.length)];
+        grid[choice.y][choice.x] = AI;
+        renderGrid();
+      }
+    }
+
+    // Statistiques simples
+    function updateStats() {
+      let playerCount = 0;
+      let aiCount = 0;
+      let neutralCount = 0;
+
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          if (grid[y][x] === PLAYER) playerCount++;
+          else if (grid[y][x] === AI) aiCount++;
+          else neutralCount++;
+        }
+      }
+
+      statsEl.textContent =
+        `Territoire joueur (bleu) : ${playerCount} | ` +
+        `IA (rouge) : ${aiCount} | ` +
+        `Neutre : ${neutralCount}`;
+    }
+
+    // Boucle de jeu : l’IA joue toutes les 700 ms
+    function startGameLoop() {
+      setInterval(aiTurn, 700);
+    }
+
+    // Lancement
+    initGrid();
+    renderGrid();
+    startGameLoop();
+  </script>
+</body>
+</html>
