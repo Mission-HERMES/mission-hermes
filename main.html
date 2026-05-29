@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>OpenFront – Version Complète</title>
+  <title>OpenFront</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="ui.css">
@@ -12,31 +12,34 @@
 <body>
 
   <!-- MENU PRINCIPAL -->
-  <div id="menu"></div>
+  <div id="menu">
+    <h1>OPENFRONT</h1>
+    <button id="btn-new" class="menu-btn">Nouvelle partie</button>
+    <button id="btn-continue" class="menu-btn">Continuer</button>
+    <button id="btn-quit" class="menu-btn">Quitter</button>
+  </div>
 
-  <!-- HUD (infos en jeu) -->
+  <!-- HUD (infos joueur) -->
   <div id="hud"></div>
 
-  <!-- ZONE DE JEU -->
+  <!-- GRILLE DE JEU -->
   <div id="game"></div>
 
-  <!-- SCRIPTS DU JEU -->
+  <!-- ÉCRAN DE VICTOIRE / DÉFAITE -->
+  <div id="victory-screen"></div>
+
+  <!-- Scripts du jeu -->
   <script src="terrain.js"></script>
   <script src="world.js"></script>
+  <script src="combat.js"></script>
   <script src="buildings.js"></script>
   <script src="units.js"></script>
-
-  <script src="capture.js"></script>
-  <script src="combat.js"></script>
   <script src="income.js"></script>
-
-  <script src="bot.js"></script>
+  <script src="capture.js"></script>
   <script src="bot_advanced.js"></script>
-
   <script src="hud.js"></script>
   <script src="menu.js"></script>
   <script src="victory.js"></script>
-
   <script src="engine.js"></script>
 
 </body>
