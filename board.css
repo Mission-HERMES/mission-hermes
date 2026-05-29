@@ -1,0 +1,42 @@
+/* --- GRILLE DE JEU --- */
+#game {
+  display: grid;
+  grid-template-columns: repeat(20, 26px);
+  grid-template-rows: repeat(12, 26px);
+  gap: 3px;
+  margin: auto;
+  width: max-content;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* --- CASES --- */
+.cell {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.15s;
+}
+
+/* Effet au survol */
+.cell:hover {
+  transform: scale(1.08);
+}
+
+/* --- COULEURS DES TERRITOIRES --- */
+.player {
+  background: #3b82f6; /* Bleu */
+}
+
+.ai {
+  background: #ef4444; /* Rouge */
+}
+
+.neutral {
+  background: #1f2937; /* Gris foncé */
+}
