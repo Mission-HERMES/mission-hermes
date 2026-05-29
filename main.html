@@ -2,25 +2,42 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>OpenFront – Version Simple</title>
+  <title>OpenFront – Version Complète</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="ui.css">
   <link rel="stylesheet" href="board.css">
 </head>
+
 <body>
 
-  <h1>OpenFront – Version Simple</h1>
+  <!-- MENU PRINCIPAL -->
+  <div id="menu"></div>
 
-  <div id="stats"></div>
+  <!-- HUD (infos en jeu) -->
+  <div id="hud"></div>
+
+  <!-- ZONE DE JEU -->
   <div id="game"></div>
 
-  <!-- Logique du jeu -->
-  <script src="world.js"></script>   <!-- carte / grille -->
-  <script src="capture.js"></script> <!-- conquête -->
-  <script src="income.js"></script>  <!-- économie -->
-  <script src="bot.js"></script>     <!-- IA -->
-  <script src="engine.js"></script>  <!-- rendu + boucle de jeu -->
+  <!-- SCRIPTS DU JEU -->
+  <script src="terrain.js"></script>
+  <script src="world.js"></script>
+  <script src="buildings.js"></script>
+  <script src="units.js"></script>
+
+  <script src="capture.js"></script>
+  <script src="combat.js"></script>
+  <script src="income.js"></script>
+
+  <script src="bot.js"></script>
+  <script src="bot_advanced.js"></script>
+
+  <script src="hud.js"></script>
+  <script src="menu.js"></script>
+  <script src="victory.js"></script>
+
+  <script src="engine.js"></script>
 
 </body>
 </html>
