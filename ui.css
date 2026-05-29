@@ -1,36 +1,110 @@
-/* --- RESET SIMPLE --- */
+/* --- RESET GLOBAL --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- PAGE GLOBALE --- */
 body {
   background: #0b1020;
   color: #ffffff;
   font-family: system-ui, sans-serif;
-  text-align: center;
-  padding-top: 20px;
+  overflow: hidden;
 }
 
-/* --- TITRE PRINCIPAL --- */
+/* --- TITRE GLOBAL (menu) --- */
 h1 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
   color: #e2e8f0;
-  text-shadow: 0 0 8px rgba(0, 150, 255, 0.4);
+  text-shadow: 0 0 12px rgba(0, 150, 255, 0.5);
 }
 
-/* --- STATS (OR, TERRITOIRE, ETC.) --- */
-#stats {
+/* --- MENU PRINCIPAL --- */
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #111827, #0b1020);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.menu-btn {
+  padding: 14px 28px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #1e40af;
+  color: white;
+  transition: 0.2s;
+}
+
+.menu-btn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+/* --- HUD (infos en jeu) --- */
+#hud {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
   font-size: 18px;
-  margin-bottom: 15px;
-  padding: 8px 12px;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+/* --- ZONE DE JEU --- */
+#game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- ÉCRAN DE VICTOIRE / DÉFAITE --- */
+#victory-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-size: 32px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+}
+
+.victory-btn {
+  padding: 12px 24px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #1e40af;
+  color: white;
+  transition: 0.2s;
+}
+
+.victory-btn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
 }
