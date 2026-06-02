@@ -2,8 +2,8 @@
 <html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>NovaSpace – Accueil</title>
-    <link rel="stylesheet" href="novaspace.css">
+    <title>Projets – NovaSpace</title>
+    <link rel="stylesheet" href="../novaspace.css">
 </head>
 
 <body>
@@ -12,17 +12,16 @@
 
     <!-- ─────────── Sidebar ─────────── -->
     <div class="sidebar">
-        <a class="logo" href="index.html">
+        <a class="logo" href="../index.html">
             <div class="logo-mark"></div>
             NovaSpace
         </a>
 
         <div class="nav">
-            <a class="nav-item active" href="index.html">Accueil</a>
-            <a class="nav-item" href="pages/projects.html">Projets</a>
-            <a class="nav-item" href="pages/messages.html">Messagerie</a>
-            <a class="nav-item" href="pages/notifications.html">Notifications</a>
-            <a class="nav-item" href="pages/profile.html">Profil</a>
+            <a class="nav-item active" href="projects.html">Projets</a>
+            <a class="nav-item" href="messages.html">Messagerie</a>
+            <a class="nav-item" href="notifications.html">Notifications</a>
+            <a class="nav-item" href="profile.html">Profil</a>
         </div>
 
         <div class="sidebar-bottom">
@@ -43,14 +42,7 @@
 
             <!-- Header -->
             <div class="feed-header">
-                <div class="feed-title">Accueil</div>
-            </div>
-
-            <!-- Énergie créative -->
-            <div class="energy-strip">
-                <div class="energy-label">Énergie créative</div>
-                <div class="energy-pips" id="energyPips"></div>
-                <div class="energy-note">Basée sur ton activité</div>
+                <div class="feed-title">Projets</div>
             </div>
 
             <!-- Composer -->
@@ -65,54 +57,20 @@
 
         </div>
 
-        <!-- ─────────── Panel latéral ─────────── -->
-        <div class="panel">
-
-            <div class="panel-block">
-                <div class="panel-heading">Tendances</div>
-                <div class="tag-list">
-                    <div class="tag-pill">#science</div>
-                    <div class="tag-pill">#art</div>
-                    <div class="tag-pill">#dev</div>
-                    <div class="tag-pill">#aérospatial</div>
-                </div>
-            </div>
-
-            <div class="panel-block">
-                <div class="panel-heading">Créateurs actifs</div>
-                <div id="activeCreators"></div>
-            </div>
-
-        </div>
-
     </div>
 
 </div>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 
 <script>
 
-    // ─────────── Récupération utilisateur ───────────
+    // ─────────── Charger l'utilisateur connecté ───────────
     const user = localStorage.getItem("username");
-    if (!user) window.location.href = "pages/login.html";
+    if (!user) window.location.href = "login.html";
 
     document.getElementById("usernameDisplay").innerText = user;
     document.getElementById("avatar").innerText = user[0].toUpperCase();
-
-
-    // ─────────── Affichage énergie ───────────
-    async function loadEnergy() {
-        const data = await getEnergy(user);
-        const value = data.value;
-        const pips = document.getElementById("energyPips");
-
-        pips.innerHTML = "";
-
-        for (let i = 0; i < 10; i++) {
-            pips.innerHTML += `<div class="pip ${i < value / 10 ? "" : "off"}"></div>`;
-        }
-    }
 
 
     // ─────────── Publier un projet ───────────
@@ -128,7 +86,6 @@
         document.getElementById("projectDesc").value = "";
 
         loadProjects();
-        loadEnergy();
     }
 
 
@@ -139,7 +96,7 @@
 
         const projects = await getAllProjects();
 
-        projects.reverse().forEach(p => {
+        projects.forEach(p => {
             feed.innerHTML += `
                 <div class="post">
                     <div class="post-header">
@@ -164,41 +121,13 @@
         });
     }
 
+    loadProjects();
+
 
     // ─────────── Ouvrir les commentaires ───────────
     function openComments(id) {
-        window.location.href = "pages/project_comments.html?id=" + id;
+        window.location.href = "project_comments.html?id=" + id;
     }
-
-
-    // ─────────── Créateurs actifs (fake pour l’instant) ───────────
-    function loadActiveCreators() {
-        const box = document.getElementById("activeCreators");
-
-        box.innerHTML = `
-            <div class="creator-row">
-                <div class="mini-avatar" style="background:var(--accent);">L</div>
-                <div class="creator-info">
-                    <div class="creator-name">Lucas</div>
-                    <div class="creator-sub">Actif récemment</div>
-                </div>
-            </div>
-
-            <div class="creator-row">
-                <div class="mini-avatar" style="background:#10b981;">A</div>
-                <div class="creator-info">
-                    <div class="creator-name">Aurore</div>
-                    <div class="creator-sub">A publié un projet</div>
-                </div>
-            </div>
-        `;
-    }
-
-
-    // ─────────── Initialisation ───────────
-    loadEnergy();
-    loadProjects();
-    loadActiveCreators();
 
 </script>
 
